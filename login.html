@@ -26,6 +26,24 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    .password-container {
+      position: relative;
+    }
+
+    #password {
+      padding-right: 30px; /* Add space for the toggle button */
+    }
+
+    #togglePassword {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 
 <body class="sub_page">
@@ -89,9 +107,26 @@
               <div>
                 <input type="text" placeholder="User Name " />
               </div>
-              <div>
-                <input type="text" placeholder="Password" />
+              <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <span id="togglePassword" onclick="togglePasswordVisibility()">👁️</span>
               </div>
+
+              <script>
+                function togglePasswordVisibility() {
+                  var passwordInput = document.getElementById("password");
+                  var togglePasswordButton = document.getElementById("togglePassword");
+            
+                  if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    togglePasswordButton.textContent = "👁️";
+                  } else {
+                    passwordInput.type = "password";
+                    togglePasswordButton.textContent = "👁️";
+                  }
+                }
+              </script>
+
               <div class="d-flex ">
                 <button>
                   Log In
