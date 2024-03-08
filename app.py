@@ -38,7 +38,7 @@ def register():
         except mysql.connector.Error as e:
             return f"Error: {e}"
     
-    return render_template('register.html')
+    return render_template('register')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -64,27 +64,27 @@ def login():
         except mysql.connector.Error as e:
             return f"Error: {e}"
             
-    return render_template('login.html')
+    return render_template('login')
 
 @app.route('/')
 @app.route('/index')
 def index():
     if 'username' in session:
-        return render_template('index.html', username=session['username'])
+        return render_template('index', username=session['username'])
     else:
         return redirect(url_for('login'))
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about')
 
 @app.route('/service')
 def service():
-    return render_template('service.html')
+    return render_template('service')
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('contact')
 
 if __name__ == '__main__':
     app.run(debug=True)
