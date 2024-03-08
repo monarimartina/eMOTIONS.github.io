@@ -1,4 +1,4 @@
-# CS3305-Team10
+# eMOTIONS.github.io
 Team Software Project 
 
 Python Version used:
